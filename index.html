@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Mumbai - Neon Visual Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mumbai-blue: #00f2ff; /* Neon Cyan */
+            --mumbai-gold: #e2c08d; /* Muted Gold */
+            --bg-dark: #0d1117;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(rgba(13, 17, 23, 0.8), rgba(13, 17, 23, 0.9)),
+                url('https://images.unsplash.com/photo-1570160897040-30430127b19a?q=80&w=2000') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            overflow: hidden;
+            transition: background 0.6s ease-in-out; 
+        }
+
+        .main-header {
+            position: absolute;
+            top: 8%;
+            left: 5%;
+            z-index: 10;
+        }
+
+        .main-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 4.5rem;
+            line-height: 0.9;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--mumbai-gold);
+            text-shadow: 0 0 20px rgba(226, 192, 141, 0.3);
+        }
+
+        .main-header p {
+            font-size: 1.1rem;
+            margin-top: 15px;
+            font-weight: 300;
+            color: #aaa;
+            letter-spacing: 1px;
+        }
+
+        .canvas {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* COOL BUBBLE STYLE */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .bubble:hover {
+            transform: scale(1.1) translateY(-10px);
+            background-color: rgba(0, 242, 255, 0.1);
+            border-color: var(--mumbai-blue);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
+            z-index: 50 !important;
+        }
+
+        .bubble img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            filter: grayscale(20%);
+            transition: filter 0.3s;
+        }
+
+        .bubble:hover img {
+            filter: grayscale(0%);
+        }
+
+        .label {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            background: rgba(13, 17, 23, 0.8);
+            padding: 10px 0;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--mumbai-gold);
+            border-top: 1px solid rgba(226, 192, 141, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .bubble:hover .label {
+            opacity: 1;
+        }
+
+        /* Bubble Sizes & Positions */
+        .b1 { width: 250px; height: 250px; top: 12%; left: 35%; z-index: 5; }
+        .b2 { width: 300px; height: 300px; top: 8%; left: 55%; z-index: 4; }
+        .b3 { width: 230px; height: 230px; top: 15%; left: 78%; z-index: 3; }
+        .b4 { width: 210px; height: 210px; top: 46%; left: 25%; z-index: 6; }
+        .b5 { width: 260px; height: 260px; top: 48%; left: 45%; z-index: 7; }
+        .b6 { width: 280px; height: 280px; top: 48%; left: 68%; z-index: 8; }
+
+        /* Navbar Styling matching the Cool Theme */
+        .navbar {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(13, 17, 23, 0.95);
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(0, 242, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 25px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            opacity: 0.7;
+        }
+
+        .navbar a:hover {
+            color: var(--mumbai-blue);
+            opacity: 1;
+            text-shadow: 0 0 10px var(--mumbai-blue);
+        }
+
+        @media (max-width: 1200px) {
+            .bubble { transform: scale(0.7); }
+            .main-header h1 { font-size: 2.5rem; }
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="canvas">
+        <div class="main-header">
+            <h1>EXPLORE<br>MUMBAI</h1>
+            <p>Your guide to the City of Dreams<br>and its iconic landmarks.</p>
+        </div>
+
+        <div class="bubble b1">
+            <img src="https://live.staticflickr.com/3684/9201886616_9db920b1d1_b.jpg" alt="Gateway">
+            <div class="label">Gateway of India</div>
+        </div>
+
+        <div class="bubble b2">
+            <img src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=500" alt="Marine Drive">
+            <div class="label">Marine Drive</div>
+        </div>
+
+        <div class="bubble b3">
+            <img src="https://static.toiimg.com/thumb/resizemode-4,width-1280,height-720,msid-123581104/123581104.jpg" alt="CSMT">
+            <div class="label">CSM Terminus</div>
+        </div>
+
+        <div class="bubble b4">
+            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/elephanta-caves-mumbai-maharashtra-10-musthead-hero?qlt=82&ts=1742180919067" alt="Elephanta">
+            <div class="label">Elephanta Caves</div>
+        </div>
+
+        <div class="bubble b5">
+            <img src="https://tripstheworld.com/wp-content/uploads/2025/09/Juhu-Beach-Mumbai-Maharashtra.jpg" alt="Juhu">
+            <div class="label">Juhu Beach</div>
+        </div>
+
+        <div class="bubble b6">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/00/24/a9/facts1-shree-siddhivinayak.jpg?w=1200&h=-1&s=1" alt="Siddhivinayak">
+            <div class="label">Siddhivinayak Temple</div>
+        </div>
+
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="HISTORY_T-W.html">History</a>
+            <a href="Must_See.html">Must-See</a>
+            <a href="#">Food</a>
+            <a href="#">Contact</a>
+        </nav>
+    </div>
+
+    <script>
+        const originalBackground = "linear-gradient(rgba(13, 17, 23, 0.8), rgba(13, 17, 23, 0.9)), url('https://images.unsplash.com/photo-1570160897040-30430127b19a?q=80&w=2000')";
+        const bubbles = document.querySelectorAll('.bubble');
+
+        bubbles.forEach(bubble => {
+            bubble.addEventListener('mouseenter', function() {
+                const imgSrc = this.querySelector('img').src;
+                // Dark overlay ensures text stays readable
+                document.body.style.backgroundImage = `linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.8)), url('${imgSrc}')`;
+            });
+
+            bubble.addEventListener('mouseleave', function() {
+                document.body.style.backgroundImage = originalBackground;
+            });
+        });
+    </script>
+</body>
+
+</html>
