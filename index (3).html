@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Must-See Spots - Dark Theme</title>
+    <style>
+        /* Modern Dark Theme Variables */
+        :root {
+            --bg-main: #11151c;
+            --bg-card: #1a1e24;
+            --text-gold: #e3c48f;
+            --text-white: #ffffff;
+            --text-grey: #a1a6ab;
+            --glow-cyan: #00d2ff;
+            --glow-orange: #ff9d00;
+            --border-faint: #2a2f35;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-white);
+            min-height: 100vh;
+        }
+
+        /* Header Styling matching the image */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        header h1 {
+            font-family: 'Times New Roman', serif;
+            color: var(--text-gold);
+            font-size: 2.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin: 0 0 15px 0;
+        }
+
+        header p {
+            color: var(--text-grey);
+            font-size: 1rem;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+
+        /* The Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* Card Base Styling */
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid var(--border-faint); /* Faint border on top/sides */
+            border-bottom: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* The specific bottom glow effects from the image */
+        .card.glow-cyan {
+            border-bottom: 3px solid var(--glow-cyan);
+            box-shadow: 0 10px 20px -10px rgba(0, 210, 255, 0.4);
+        }
+
+        .card.glow-orange {
+            border-bottom: 3px solid var(--glow-orange);
+            box-shadow: 0 10px 20px -10px rgba(255, 157, 0, 0.4);
+        }
+
+        /* Card Header (Location Name) */
+        .card h2 {
+            color: var(--text-gold);
+            font-size: 1.4rem;
+            margin: 0 0 20px 0;
+            padding-bottom: 15px;
+            border-bottom: 1px dotted #3b424a; /* Dotted separator line */
+            letter-spacing: 0.5px;
+        }
+
+        /* Card Content Items */
+        .sight {
+            margin-bottom: 25px;
+        }
+
+        .sight:last-child {
+            margin-bottom: 0;
+        }
+
+        .sight h3 {
+            color: var(--text-white);
+            font-size: 1rem;
+            margin: 0 0 8px 0;
+        }
+
+        .sight p {
+            color: var(--text-grey);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* The 'BACK TO HOME' Button */
+        .btn-container {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .btn-home {
+            display: inline-block;
+            padding: 12px 35px;
+            border: 1px solid var(--glow-cyan);
+            border-radius: 30px;
+            color: var(--glow-cyan);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .btn-home:hover {
+            background-color: var(--glow-cyan);
+            color: var(--bg-main);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Must-See Spots</h1>
+        <p>Don't miss these specific highlights when you visit Mumbai</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="card glow-cyan">
+            <h2>Gateway of India</h2>
+            <div class="sight">
+                <h3>The Taj Mahal Palace</h3>
+                <p>Turn around to see this majestic 1903 heritage hotel, offering the best background for photos.</p>
+            </div>
+            <div class="sight">
+                <h3>Statue of Shivaji Maharaj</h3>
+                <p>A beautiful bronze statue located just a few steps from the iconic arch.</p>
+            </div>
+        </div>
+
+        <div class="card glow-orange">
+            <h2>Marine Drive</h2>
+            <div class="sight">
+                <h3>Art Deco Buildings</h3>
+                <p>Look across the road at the UNESCO-recognized row of 1930s Art Deco apartment blocks.</p>
+            </div>
+            <div class="sight">
+                <h3>Nariman Point Skyline</h3>
+                <p>Walk to the southern tip to view Mumbai's business district glowing at night.</p>
+            </div>
+        </div>
+
+        <div class="card glow-cyan">
+            <h2>CSM Terminus</h2>
+            <div class="sight">
+                <h3>The Star Chamber</h3>
+                <p>Step inside to see the incredible vaulted ceiling and stained glass of the ticket hall.</p>
+            </div>
+            <div class="sight">
+                <h3>BMC Headquarters</h3>
+                <p>Stunning municipal building—especially beautiful when lit up after dark.</p>
+            </div>
+        </div>
+
+        <div class="card glow-orange">
+            <h2>Elephanta Caves</h2>
+            <div class="sight">
+                <h3>The Trimurti Sculpture</h3>
+                <p>The main attraction: a massive, 20-foot tall three-headed carving of Lord Shiva.</p>
+            </div>
+            <div class="sight">
+                <h3>Cannon Hill</h3>
+                <p>Take a short trek past the caves to see old Portuguese cannons and a great view of the sea.</p>
+            </div>
+        </div>
+
+        <div class="card glow-cyan">
+            <h2>Juhu Beach</h2>
+            <div class="sight">
+                <h3>Prithvi Theatre</h3>
+                <p>A legendary theatre just a short walk away. Even if there's no play, the open-air cafe is iconic.</p>
+            </div>
+            <div class="sight">
+                <h3>ISKCON Temple</h3>
+                <p>A massive, peaceful marble temple complex located right near the shoreline.</p>
+            </div>
+        </div>
+
+        <div class="card glow-orange">
+            <h2>Shree Siddhivinayak</h2>
+            <div class="sight">
+                <h3>The Golden Spire</h3>
+                <p>Look up before entering to see the Kalash (spire) plated with over 35 kilos of pure gold.</p>
+            </div>
+            <div class="sight">
+                <h3>Phool Gali (Flower Alley)</h3>
+                <p>Walk through the vibrant, sweet-smelling alley of vendors selling marigolds and sweets for offerings.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="btn-container">
+        <a href="index.html" class="btn-home">Back to Home</a>
+    </div>
+
+</body>
+</html>
